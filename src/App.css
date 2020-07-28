@@ -1,12 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .App {
   text-align: center;
+  border: 10px solid #7ab08f;
+  width: fit-content;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom: none;
+  margin: auto;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App-bg {
+  height: 400px;
+  width: 500px;
+  background-image: linear-gradient(to bottom, #7ab08f, #31a85f);
 }
-
+.App-buttons {
+  background-color: transparent;
+  height: inherit;
+  width: 80%;
+  border: 130px solid black;
+  border-radius: 60%;
+  margin: auto;
+  position: relative;
+}
+.button-menu {
+  position: absolute;
+  color: #7ab08f;
+  top: -90px;
+  left: -70px;
+  height: 120px;
+  width: 300px;
+  font-size: 1.7em;
+  cursor: pointer;
+  padding-top: 30px;
+}
+.button-right {
+  position: absolute;
+  color: #7ab08f;
+  height: 110px;
+  width: 125px;
+  top: 30px;
+  right: -110px;
+  font-size: 1.5em;
+  cursor: pointer;
+  padding: 30px;
+}
+.button-left {
+  position: absolute;
+  color: #7ab08f;
+  height: 110px;
+  width: 130px;
+  top: 30px;
+  left: -110px;
+  font-size: 1.5em;
+  cursor: pointer;
+  padding-top: 30px;
+}
+.button-play {
+  position: absolute;
+  color: #7ab08f;
+  height: 100px;
+  width: 300px;
+  bottom: -110px;
+  left: -75px;
+  font-size: 1.5em;
+  cursor: pointer;
+  padding: 30px;
+}
+.button-ok {
+  position: absolute;
+  background-color: rgb(7, 82, 51);
+  height: 130px;
+  width: 130px;
+  border-radius: 60%;
+  top: 5px;
+  left: 5px;
+  font-size: 1.5em;
+  cursor: pointer;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

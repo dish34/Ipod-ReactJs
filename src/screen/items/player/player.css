@@ -1,0 +1,32 @@
+/* Player Styles */
+.player-container {
+  position: relative;
+}
+.player-image {
+  height: 350px;
+  width: 350px;
+}
+.player {
+  height: 50px;
+  background-color: rgba(0, 7, 5, 0.562);
+  position: sticky;
+  bottom: 30px;
+}
+.margin {
+  position: relative;
+  margin-left: auto;
+}
+.player > .fas {
+  color: white;
+  font-size: 2em;
+  margin-top: auto;
+  top: 5px;
+  position: relative;
+}
+.audiobtn {
+  border: none;
+  color: white;
+  background-color: transparent;
+  font-size: 35px;
+  cursor: pointer;
+}

@@ -1,0 +1,94 @@
+.screen {
+  height: 300px;
+  width: 500px;
+  border: 5px solid black;
+  margin: auto;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  overflow-y: overlay;
+  overflow-x: hidden;
+}
+.screen-bg {
+  height: 250px;
+  width: 600px;
+  background-image: url(./images/spotify.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: 3s ease-in 1s running slidein;
+}
+.screen-left-side {
+  float: left;
+  background-color: white;
+  z-index: 10;
+  /* animation: 3s ease-in 1s running slidein; */
+}
+.screen-right-side {
+  float: right;
+  height: 255px;
+  width: 240px;
+  /* background-image: url(./images/spotify.jpg); */
+  /* background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; */
+}
+.left-title {
+  font-size: 2em;
+  margin-bottom: 15px;
+}
+ul {
+  list-style: none;
+}
+ul > li {
+  height: 50px;
+  width: 250px;
+  padding: 15px;
+}
+li > i {
+  float: right;
+  color: white;
+}
+.active {
+  background-color: blue;
+  animation: 4s linear 1s infinite alternate slidein;
+}
+.unactive {
+  background-color: white;
+  transition: linear 1s;
+}
+.row {
+  margin-top: 5px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.song-img {
+  height: 100px;
+  width: 100px;
+  color: red;
+  /* background-image: url(../images/rock6.jpg); */
+  background-size: contain;
+  margin: 5px 0px;
+}
+.s-img {
+  height: inherit;
+  width: inherit;
+}
+@media (min-width: 768px) {
+  .col-md-6 {
+    width: 50%;
+  }
+  .col-m-auto {
+    margin: auto;
+  }
+}
+
+@keyframes slidein {
+  from {
+    transform: scaleX(0.8);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}

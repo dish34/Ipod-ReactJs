@@ -1,0 +1,57 @@
+/* Stles for song Artist albums */
+.row {
+  margin-top: 5px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.song-img {
+  height: 200px;
+  width: 200px;
+  color: rgb(7, 114, 109);
+  background-size: contain;
+  margin: 5px 0px;
+}
+.song-title {
+  display: inline;
+  float: left;
+}
+.song-heart {
+  display: inline;
+  float: right;
+  color: rgb(224, 7, 43);
+}
+.song-container {
+  margin: 13px 0px;
+}
+.s-img {
+  height: 200px;
+  width: 200px;
+  border-radius: 5%;
+}
+.a-img {
+  height: 150px;
+  width: 200px;
+  border-radius: 10%;
+}
+.artist-img {
+  height: 150px;
+  width: 200px;
+  border-radius: 40%;
+}
+.playlist-img {
+  height: 150px;
+  width: 200px;
+}
+.song-overflow {
+  overflow: scroll;
+}
+@media (min-width: 300px) {
+  .col-md-6 {
+    width: 50%;
+  }
+  .col-m-auto {
+    margin: auto;
+  }
+}
