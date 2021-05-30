@@ -14,6 +14,7 @@ class App extends Component {
     player: false,
     songId: -1,
     isPlaySong: false,
+    darkMode: false,
     songs: [
       {
         id: 1,
@@ -142,26 +143,29 @@ class App extends Component {
     // Output Screen Function To increment the Value of VAl
     var setOutput = () => {
       if (this.state.ok !== 1) {
-        console.log("this is", this);
+        // console.log("this is", this);
         if (this.state.val === 4) {
-          this.setState({ val: -1 });
+          this.setState((state) => ({ val: -1 }));
         }
-        this.setState({ val: this.state.val + 1 }, () => {
-          console.log("updated state value", this.state.val);
-        });
+        this.setState(
+          (state) => ({ val: state.val + 1 }),
+          () => {
+            console.log("updated state value", this.state.val);
+          }
+        );
       }
       currentAngle = 0;
     };
     // To Return Back to the Menu
     var backMenu = () => {
       if (button === "button-menu") {
-        this.setState({ ok: 0 });
+        this.setState((state) => ({ ok: 0 }));
         if (this.state.player === true) {
-          this.setState({ player: !this.state.player });
+          this.setState((state) => ({ player: !state.player }));
         }
         this.setState({ ok: 0 });
         if (this.state.isPlaySong === true) {
-          this.setState({ isPlaySong: !this.state.isPlaySong });
+          this.setState((state) => ({ isPlaySong: !state.isPlaySong }));
         }
       }
     };
@@ -182,8 +186,8 @@ class App extends Component {
   };
   // When User Clicks an Song
   handlePlayer = (song) => {
-    this.setState({ player: !this.state.player });
-    this.setState({ songId: song.id });
+    this.setState((state) => ({ player: !state.player }));
+    this.setState((state) => ({ songId: song.id }));
     console.log("Player and Song Id is:", this.state.player, song.id);
   };
   // To play the songs
@@ -193,9 +197,49 @@ class App extends Component {
     pbtn.value = "⏸️";
     console.log("play");
   };
+  handleUpButton = () => {
+    console.log("ok btn is:", this.state.ok);
+    if (this.state.ok === 0) {
+      if (this.state.ok === 0 && this.state.val === 0) {
+        this.setState({ val: 4 });
+      } else {
+        this.setState((state) => ({
+          val: state.val - 1,
+        }));
+      }
+    } else if (this.state.ok === 1) {
+      // document.getElementByI("screen-songs").scroll(50, 0);
+      console.log("I'm in screen");
+      document.querySelector(".screen").scrollBy(0, -50);
+    }
+  };
+  handleDownButton = () => {
+    if (this.state.ok === 0) {
+      if (this.state.val === 4) {
+        this.setState({
+          val: 0,
+        });
+      } else {
+        this.setState((state) => ({
+          val: state.val + 1,
+        }));
+      }
+    } else if (this.state.ok === 1) {
+      // document.getElementByI("screen-songs").scroll(50, 0);
+      console.log("I'm in down screen");
+      document.querySelector(".screen").scrollBy(0, 50);
+    }
+  };
+  handleDarkMode = () => {
+    this.setState((state) => ({ darkMode: !state.darkMode }));
+  };
   // Moving to the component "Screen"and passing val, ok, songs, albums, artists ,handlePlayer
   // player, songId, playlists,play
   render() {
+    let darkClass = "";
+    if (this.state.darkMode) {
+      darkClass += "dark";
+    }
     return (
       <div>
         <div className="App">
@@ -211,10 +255,13 @@ class App extends Component {
             playlists={this.state.playlists}
             play={this.play}
             isPlaySong={this.state.isPlaySong}
+            darkMode={this.state.darkMode}
+            className={darkClass}
           ></Screen>
           <div className="App-bg">
             <div className="App-buttons">
               <div
+                title="Go back to Menu and Rotate to move up and down"
                 className="button-menu"
                 onMouseOver={() => this.touchEvent("button-menu")}
                 onClick={() => this.backMenu}
@@ -240,6 +287,32 @@ class App extends Component {
                 <i class="fas fa-play"></i>
               </div>
               <div
+                title="move Up"
+                className="button-up"
+                onClick={this.handleUpButton}
+              >
+                <i class="far fa-caret-square-up"></i>
+              </div>
+              <div
+                title="Move Down"
+                className="button-down"
+                onClick={this.handleDownButton}
+              >
+                <i class="far fa-caret-square-down"></i>
+              </div>
+              <div
+                title="Try Dark Mode"
+                className="button-dark"
+                onClick={this.handleDarkMode}
+              >
+                {this.state.darkMode ? (
+                  <i class="far fa-lightbulb"></i>
+                ) : (
+                  <i class="fas fa-lightbulb"></i>
+                )}
+              </div>
+              <div
+                title="Okay Button"
                 className="button-ok"
                 onClick={this.okButton}
                 onMouseDown={this.handleClick}

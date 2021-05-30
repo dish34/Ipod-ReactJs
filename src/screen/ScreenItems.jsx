@@ -11,13 +11,18 @@ import Playlist from "../screen/items/Playlist";
 const Screen = (props) => {
   const value = props.val;
   const okay = props.ok;
+  const { darkMode } = props;
+  let darkClass = "";
+  if (darkMode) {
+    darkClass += "dark";
+  }
   // For the Songs active Screen
   if (okay === 1 && value === 0) {
     const { songs, player, songId } = props;
     // For the Player
     if (player === true) {
       return (
-        <div className="screen">
+        <div className={`screen ${darkClass}`}>
           <SongPlayer
             songs={songs}
             songId={songId}
@@ -28,8 +33,8 @@ const Screen = (props) => {
       );
     }
     return (
-      <div className="screen">
-        <div>Songs</div>
+      <div className={`screen ${darkClass}`}>
+        <div id="screen-songs">Songs</div>
         <div className="row">
           {songs.map((song) => {
             return (
@@ -47,7 +52,7 @@ const Screen = (props) => {
     // For the Albums active list
     const { albums } = props;
     return (
-      <div className="screen">
+      <div className={`screen ${darkClass}`}>
         <div>Album</div>
         <div className="row">
           {albums.map((album) => {
@@ -60,7 +65,7 @@ const Screen = (props) => {
     // For the Artist active List
     const { artists } = props;
     return (
-      <div className="screen">
+      <div className={`screen ${darkClass}`}>
         <div>Artists</div>
         <div className="row">
           {artists.map((artist) => {
@@ -73,7 +78,7 @@ const Screen = (props) => {
     // for the Playlist active list
     const { playlists } = props;
     return (
-      <div className="screen">
+      <div className={`screen ${darkClass}`}>
         <div>Playlist</div>
         <div className="row">
           {playlists.map((playlist) => {
@@ -84,23 +89,29 @@ const Screen = (props) => {
     );
   } else {
     // for the screen to display songs,albums,artists,playlists lists
+    let screenLeft = `screen-left-side ${darkClass}`;
+    let leftTitle = `left-title ${darkClass}`;
+    // let screenRight = `screen-right-side ${darkClass}`;
+    let unActive = `unactive ${darkClass}`;
+    let Active = `active`;
+    let screenClass = `screen ${darkClass}`;
     return (
-      <div className="screen">
-        <div>HI</div>
+      <div className={screenClass}>
+        <div class={darkClass}>HI</div>
         <div className="screen-bg">
-          <div className="screen-left-side">
-            <div className="left-title">iPod.js</div>
-            <ul>
-              <li className={`${value === 0 ? "active" : "unactive"}`}>
+          <div className={screenLeft}>
+            <div className={leftTitle}>iPod.js</div>
+            <ul className={darkClass}>
+              <li className={`${value === 0 ? Active : unActive}`}>
                 Songs <i class="fas fa-chevron-right"></i>
               </li>
-              <li className={`${value === 1 ? "active" : "unactive"}`}>
+              <li className={`${value === 1 ? Active : unActive}`}>
                 Albums <i class="fas fa-chevron-right"></i>
               </li>
-              <li className={`${value === 2 ? "active" : "unactive"}`}>
+              <li className={`${value === 2 ? Active : unActive}`}>
                 Artists <i class="fas fa-chevron-right"></i>
               </li>
-              <li className={`${value === 3 ? "active" : "unactive"}`}>
+              <li className={`${value === 3 ? Active : unActive}`}>
                 Playlists <i class="fas fa-chevron-right"></i>
               </li>
             </ul>

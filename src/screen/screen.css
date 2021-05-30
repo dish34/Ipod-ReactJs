@@ -53,8 +53,8 @@ li > i {
   animation: 4s linear 1s infinite alternate slidein;
 }
 .unactive {
-  background-color: white;
-  transition: linear 1s;
+  /* background-color: white; */
+  /* transition: linear 1s; */
 }
 .row {
   margin-top: 5px;

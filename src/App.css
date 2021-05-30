@@ -72,13 +72,43 @@
 }
 .button-ok {
   position: absolute;
-  background-color: rgb(7, 82, 51);
+  background-color: rgb(16, 61, 42);
   height: 130px;
   width: 130px;
   border-radius: 60%;
   top: 5px;
   left: 5px;
   font-size: 1.5em;
+  cursor: pointer;
+}
+.button-up {
+  position: absolute;
+  color: black;
+  top: -125px;
+  left: 270px;
+  height: auto;
+  width: auto;
+  font-size: 2.2em;
+  cursor: pointer;
+}
+.button-down {
+  position: absolute;
+  color: black;
+  top: -85px;
+  left: 270px;
+  height: auto;
+  width: auto;
+  font-size: 2.2em;
+  cursor: pointer;
+}
+.button-dark {
+  position: absolute;
+  color: black;
+  top: -85px;
+  left: -150px;
+  height: auto;
+  width: auto;
+  font-size: 2.2em;
   cursor: pointer;
 }
 @media (prefers-reduced-motion: no-preference) {
